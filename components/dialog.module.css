@@ -1,0 +1,104 @@
+.container {
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.main {
+    /*background-color: #fefff0;*/
+    position: relative;
+    width: 100%;
+    /*max-width: 480px;*/
+    height: 100%;
+    max-width: 800px;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0 0 0;
+}
+.title {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.list {
+    padding: 1rem;
+}
+
+.listItem {
+    /*background-color: #145;*/
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+.listItem:last-child {
+    margin-bottom: 8rem;
+}
+.listName {
+    /*background-color: #231;*/
+    width: calc(100% - 40% - 155px - 60px);
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.listAmount {
+    /*background-color: #214;*/
+    width: 155px;
+    text-align: right;
+    box-sizing: border-box;
+    padding-right: 1rem;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.listStatus {
+    /*background-color: lightblue;*/
+    width: 60px;
+    text-align: right;
+}
+.listDish {
+    /*background-color: #522;*/
+    width: 40%;
+    /*text-align: center;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.action {
+    background-image: linear-gradient(#fff6 10px, #fff);
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 1rem 0 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+@media (prefers-color-scheme: dark) {
+
+    .container {
+        background-color: #222;
+    }
+
+    .main {
+        background-color: transparent;
+    }
+    .action {
+        background-image: linear-gradient(#2221, #222);
+    }
+
+}

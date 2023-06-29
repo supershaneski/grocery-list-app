@@ -1,0 +1,34 @@
+.item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.item:last-child {
+    margin-bottom: 0;
+}
+.item:hover {
+    background-color: #efefef99;
+}
+
+.text {
+    margin-left: 5px;
+    font-size: 1.1rem;
+    font-style: italic;
+    text-transform: capitalize;
+    position: relative;
+    width: calc(100% - 50px);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+
+    .item:hover {
+        background-color: #33333399;
+    }
+
+}

@@ -1,0 +1,74 @@
+.container {
+    /*background-color: #ffefee;*/
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    /*background-color: #eeffef;*/
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
+}
+
+.header {
+    /*background-color: #aaffbb;*/
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+}
+.banner {
+    position: relative;
+}
+.title {
+    margin: 0;
+    font-size: 1.2rem;
+}
+.subtitle {
+    margin: 0;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.input {
+    /*background-color: #ff99dd;*/
+    padding: .5rem;
+}
+
+.menu {
+    /*background-color: #ddefff;*/
+    position: relative;
+    padding: .5rem;
+    min-height: calc(100% - 192px);
+}
+
+.action {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.list {
+    padding: 2rem 0rem 0rem 0rem;
+}
+
+.clearItem {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.actionButton {
+    margin-left: 0px;
+}
+.actionButton + .actionButton {
+    margin-left: 10px;
+}
