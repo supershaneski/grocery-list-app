@@ -1,57 +1,61 @@
-next-sandbox-app
-=========
+grocery-list-app
+======
 
-This project is for testing features and functions of the latest Next.js 13.
+This is a sample React project that generates a grocery list of ingredients based on a menu or a list of dishes. It is powered by the OpenAI Chat Completion API and built using Next.js 13.
 
-# Stack
+----
 
-* [Next 13](https://beta.nextjs.org/docs/installation#manual-installation), the React framework
+これは、メニューや料理のリストに基づいて食材の買い物リストを生成するサンプルのReactプロジェクトです。OpenAI Chat Completion APIを利用しており、Next.js 13を使用して構築されています。
 
-    ```sh
-    npm install next@latest react@latest react-dom@latest eslint-config-next@latest
-    ```
-* [Material UI](https://mui.com/material-ui/getting-started/overview/), a React UI components library
 
-    ```sh
-    npm install @mui/material @emotion/react @emotion/styled
-    ```
-* [OpenAI](https://github.com/openai/openai-node#readme), Node.js library that provides convenient access to the OpenAI API
+# Application
 
-    ```sh
-    npm install openai
-    ```
-* [Zustand](https://github.com/pmndrs/zustand), to handle global state management, using the [persisting store data](https://docs.pmnd.rs/zustand/integrations/persisting-store-data)
-    
-    ```sh
-    npm install zustand
-    ```
+Make a list of dishes you want to prepare and click the "Generate" button.
 
-# Tokens
+---
 
-> Reference: https://platform.openai.com/tokenizer
+準備したい料理のリストを作成し、「生成」ボタンをクリックしてください。
 
-A helpful rule of thumb is that one token generally corresponds to ~4 characters of text for common English text. This translates to roughly ¾ of a word (so 100 tokens ~= 75 words).
+![Search Menu](./docs/screenshot1.png "Search Menu")
 
-# Embedding Reference
+The ingredients will be listed, indicating which dish they are used for. You can also specify if you already have them in your pantry.
 
-https://github.com/openai/openai-cookbook/tree/main/apps/file-q-and-a
+---
 
-# MongoDB
+食材がリストに表示され、どの料理に使用されるかが示されます。また、パントリーに既にあるかどうかを指定することもできます。
 
-To install MongoDB driver for Node.js.
+![Grocery List](./docs/screenshot2.png "Grocery List")
+
+This is just a basic demo application, and there is much more that can be done to extend its functionality.
+
+---
+
+これは基本的なデモアプリケーションであり、その機能を拡張するためにはさらに多くのことができます。
+
+
+
+# Setup
+
+Clone the repository and install the dependencies
 
 ```sh
-npm install mongodb
+git clone https://github.com/supershaneski/grocery-list-app.git myproject
+
+cd myproject
+
+npm install
 ```
 
-Then prepare the following environment variables which will be used to connect to the database.
+Copy `.env.example` and rename it to `.env` then edit the `OPENAI_API_KEY` use your own API key. 
 
-```
-DB_HOST=localhost
-DB_USER=root
-DB_PASS=
-DB_NAME=callcenter
-DB_PORT=27017
+```javascript
+OPENAI_API_KEY=YOUR-OPENAI-API-KEY
 ```
 
-We will be just using a simple MongoDB shell in localhost.
+Then run the app
+
+```sh
+npm run dev
+```
+
+Open your browser to `http://localhost:3002/` to load the application page.
