@@ -33,6 +33,68 @@ This is just a basic demo application, and there is much more that can be done t
 これは基本的なデモアプリケーションであり、その機能を拡張するためにはさらに多くのことができます。
 
 
+# Extracting Ingredients from Menu
+
+When I began this project, I wrote a prompt and utilized the `Text Completions API` to extract the ingredients. I employed the `One Shot Prompt` to guide the API in generating the results in a recognizable format and put effort into parsing it.
+
+As soon as`OpenAI` introduced function calling, I promptly refactored the code to incorporate it, and it greatly simplified the process. The results are now provided in `JSON` format, which further streamlines the workflow.
+
+Here's the function:
+
+```javascript
+{
+    name: "get_ingredients",
+    description: "List the ingredients given the list of dish.",
+    parameters: {
+        type: "object",
+        properties: {
+            ingredients: {
+                type: "array",
+                items: {
+                    type: "object",
+                    properties: {
+                        name: { type: "string", description: "Name of ingredient, e.g. pork belly, ginger, garlic, fish sauce" },
+                        quantity: { type: "string", description: "Quantity e.g. 1kg, 2pcs, 3cups, 4tsp, 5tbsp" },
+                        dish: { type: "string", description: "Name of dish, e.g. adobo, pasta, stew" },
+                    }
+                }
+            }
+        },
+        required: ["people"]
+    }
+}
+```
+
+And a sample result:
+
+```javascript
+{
+  role: 'assistant',
+  content: null,
+  function_call: {
+    name: 'get_ingredients',
+    arguments: '{\n' +
+      '  "ingredients": [\n' +
+      '    {\n' +
+      '      "name": "beef",\n' +
+      '      "quantity": "1 pound",\n' +
+      '      "dish": "beef broccoli stir fry"\n' +
+      '    },\n' +
+      '    {\n' +
+      '      "name": "broccoli",\n' +
+      '      "quantity": "2 cups",\n' +
+      '      "dish": "beef broccoli stir fry"\n' +
+      '    },\n' +
+      '    {\n' +
+      '      "name": "soy sauce",\n' +
+      '      "quantity": "2 tablespoons",\n' +
+      '      "dish": "beef broccoli stir fry"\n' +
+      '    },\n' +
+      '  ]\n' +
+      '}'
+    }
+}
+```
 
 # Setup
 
