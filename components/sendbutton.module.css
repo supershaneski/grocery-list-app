@@ -1,5 +1,4 @@
 .container {
-    /*background-color: #00bd7e;*/
     position: relative;
     border-radius: 50%;
     width: 80px;
@@ -23,15 +22,6 @@
     transition: all 0.2s ease-in;
 }
 
-/*
-.container .button {
-    border-color: #00bd7e;
-}
-*/
-/*.container .button:hover {
-    transform: scale(1.1); 
-    border-color: transparent;
-}*/
 .disabled {
     background-color: #555;
     position: relative;
@@ -46,13 +36,3 @@
 .disabled .button {
     border-color: #555;
 }
-
-/*
-@media (prefers-color-scheme: dark) {
-
-    .item:hover {
-        background-color: #33333399;
-    }
-
-}
-*/

@@ -1,35 +1,22 @@
 'use client'
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import { createPortal } from 'react-dom'
 
 import Button from '@mui/material/Button'
-//import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 
 import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
 
-//import { DataGrid } from '@mui/x-data-grid'
-//import GridRowsProp from '@mui/x-data-grid/GridRowsProp'
-//import GridColDef from '@mui/x-data-grid/GridColDef'
-
-//import Fab from '@mui/material/Fab'
-
 import ListIcon from '@mui/icons-material/List'
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
-//import RemoveIcon from '@mui/icons-material/HighlightOff'
-
-//import DeleteIcon from '@mui/icons-material/Delete'
 import RiceBowlIcon from '@mui/icons-material/RiceBowl'
 import ClearIcon from '@mui/icons-material/Clear'
-//import SendIcon from '@mui/icons-material/Send'
 import AddIcon from '@mui/icons-material/Add'
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag'
 
-//import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 
 import CustomTheme from '../components/customtheme'
@@ -42,7 +29,7 @@ import Loader from '../components/loader'
 import useCaption from '../lib/usecaption'
 import useDarkMode from '../lib/usedarkmode'
 import useMenuStore from '../stores/menustore'
-import useGroceryStore from '../stores/grocerystore'
+//import useGroceryStore from '../stores/grocerystore'
 import useResultStore from '../stores/resultstore'
 
 import { getSimpleId } from '../lib/utils'
@@ -150,8 +137,6 @@ export default function Sandbox() {
 
     const handleIngredients = async () => {
         
-        console.log('handle ingredient...')
-
         setLoading(true)
 
         try {
@@ -173,33 +158,8 @@ export default function Sandbox() {
             }
 
             const result = await response.json()
-
-            console.log('result', (new Date()).toLocaleTimeString(), result.text)
-
-            /*
-            if(result.text) {
-
-                const uniqueItem = (value, index, array) => array.indexOf(value) === index
-                
-                let food_items = result.text.split('\n').filter((item) => item.length > 0 && item.indexOf('Note:') < 0 && item.indexOf('Grocery List:') < 0 && item.indexOf('Ingredients:') < 0)
-                    .map((item) => item.indexOf('- ') === 0 ? item.slice(2) : item)
-
-                food_items = food_items.filter(uniqueItem)
-
-                setFoodItems(food_items)
-
-                setStartTimer(true)
-
-            } else {
-
-                setLoading(false)
-
-            }
-            */
-
+            
             if(result.ingredients.length > 0) {
-
-                //const uniqueItem = (item, index, array) => array.indexOf(item.name) === index
 
                 let extra_items = []
                 let tmp_name = ''
@@ -223,17 +183,14 @@ export default function Sandbox() {
                         return true
                     }
                 })
-                //ingredients = ingredients.filter(uniqueItem)
-
+                
                 ingredients = ingredients.map((item) => {
                     
-                    //let dish = [item.dish]
                     let dish = item.dish
 
                     for(let i = 0; i < extra_items.length; i++) {
                         if(extra_items[i].name === item.name) {
                             dish += ',' + extra_items[i].dish
-                            //dish.push(extra_items[i].dish)
                         }
                     }
 

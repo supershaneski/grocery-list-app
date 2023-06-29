@@ -1,15 +1,13 @@
 'use client'
 
-import { useRef, useEffect, useState, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 
 import PropTypes from 'prop-types'
 
-import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
 import Chip from '@mui/material/Chip'
 
 import KitchenIcon from '@mui/icons-material/Kitchen'
-import ShoppingIcon from '@mui/icons-material/ShoppingCart'
 import AddCartIcon from '@mui/icons-material/AddShoppingCart'
 import ClearIcon from '@mui/icons-material/Clear'
 
@@ -42,24 +40,6 @@ export default function Dialog({
         
         let menus = items.map((item, index) => {
 
-            /*
-            const token = item.split(',')
-
-            let name = token[0].trim()
-            let amount = token.length > 1 ? token[1].trim() : ''
-            
-            let dish = ''
-            if(token.length > 2) {
-                for (let k = 2; k < token.length; k++) {
-                    if(k === 2) {
-                        dish = token[k]
-                    } else {
-                        dish += ',' + token[k]
-                    }
-                }
-            }
-            */
-
             let name = item.name
             let amount = item.quantity
             let dish = item.dish
@@ -80,23 +60,6 @@ export default function Dialog({
             }
 
         }).filter((item) => item.name.toLowerCase() !== 'water')
-
-        /*
-        let skeys = ''
-        menus = menus.filter((item) => item.amount.length > 0).filter((item) => {
-            if(skeys.length === 0) {
-                skeys = item.name
-                return true
-            } else {
-                if(skeys.indexOf(item.name) >= 0) {
-                    return false
-                } else {
-                    skeys+=','+item.name
-                    return true
-                }
-            }
-        })
-        */
 
         setGroceryItems(menus)
 
@@ -126,17 +89,6 @@ export default function Dialog({
 
     }
 
-    /*
-    <CustomTheme>
-        <Button 
-        onClick={() => handleStatus(item.name, item.amount, item.status)}
-        color={item.status === 'Buy' ? "primary" : "success"}
-        startIcon={item.status === 'Buy' ? <AddCartIcon /> : <KitchenIcon />} 
-        variant="outlined" 
-        sx={{ width: '130px' }}>{ item.status }</Button>
-    </CustomTheme>
-    */
-
     return (
         <div className={classes.container}>
             <div className={classes.main}>
@@ -150,14 +102,11 @@ export default function Dialog({
                             if(a.name < b.name) return -1
                             return 0
                         }).map((item) => {
+                            
                             const noStatus = item.name.toLowerCase() === 'water' ? true : false
 
-                            //const dish = item.dish.split(';').map((m) => capitalizeFirstLetter(m)).join(', ')
-                            //const dish = item.dish.length === 0 ? [] : item.dish.split(', ')
                             const dish = item.dish.length === 0 ? [] : item.dish.split(',')
                             
-                            //<div className={classes.listDish}><span>{ dish }</span></div>
-
                             return (
                                 <div key={item.id} className={classes.listItem}>
                                     <div className={classes.listAmount}><span>{ item.amount }</span></div>

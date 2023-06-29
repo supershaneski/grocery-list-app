@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 import IconButton from '@mui/material/IconButton'
 
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+//import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 
 import classes from './sendbutton.module.css'
 import CustomTheme from './customtheme'
@@ -18,14 +18,7 @@ export default function SendButton({
     color = '#00bd7e',
 }) {
     const classContainer = disabled ? classes.disabled : classes.container
-    /*
-    <ShoppingCartIcon 
-                        fontSize="large" 
-                        sx={{
-                            color: '#fff',
-                            m: 2,
-                        }}
-                        />*/
+    
     return (
         <div className={classContainer} style={{
             backgroundColor: disabled ? '#555' : color,
